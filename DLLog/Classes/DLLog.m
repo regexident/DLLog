@@ -132,7 +132,8 @@ void DLLog##level##InContext(id context, NSString *format, ...) { \
 	if ([dl_logContextSet containsObject:DLLogAnyContext()] || [dl_logContextSet containsObject:context]) { \
 		va_list arguments; \
 		va_start(arguments, format); \
-		asl_log(NULL, NULL, (DLLogLevel##level), "%s", [[[NSString alloc] initWithFormat:format arguments:arguments] UTF8String]); \
+		NSString *string = [[NSString alloc] initWithFormat:format arguments:arguments]; \
+		asl_log(NULL, NULL, (DLLogLevel##level), "(%s): %s", [[context description] UTF8String], [string UTF8String]); \
 		va_end(arguments); \
 	} \
 }

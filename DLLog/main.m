@@ -29,7 +29,7 @@ void DLSomeFunctionLoggingGarbageAndACriticalMessage() {
 void DLSomeFunctionLoggingInAContext() {
 	for (NSUInteger i = 1; i <= 4; i++) {
 		id context = (i % 2 == 0) ? evenContext : oddContext;
-		DLLogNoticeInContext(context, @"%d is %@", (int)i, context);
+		DLLogNoticeInContext(context, @"%d", (int)i);
 	}
 }
 
