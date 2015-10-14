@@ -129,7 +129,7 @@ void DLLog##level(NSString *format, ...) { \
 void DLLog##level##InContext(id context, NSString *format, ...) { \
 	NSCParameterAssert(context != nil); \
 	NSCParameterAssert(format != nil); \
-	if ([dl_logContextSet containsObject:DLLogAnyContext()] || [dl_logContextSet containsObject:context]) { \
+	if ([dl_logContextSet containsObject:DLLogAnyContext()] || ([dl_logContextSet containsObject:context] && DLLogLevel##level <= DLLogGetLevelFilter())) { \
 		va_list arguments; \
 		va_start(arguments, format); \
 		NSString *string = [[NSString alloc] initWithFormat:format arguments:arguments]; \
