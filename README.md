@@ -1,4 +1,4 @@
-# DLLog
+# DLLog [![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 Unlike most other major programming languages Objective-C (or rather the Foundation framework) does not provide a way to filter (usually via level) which messages are passed to the log (through NSLog for example). **DLLog** aims to fill that gap.
 
